@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "行驶证扫描结果",
+  "usingComponents": {
+    "v-panel": "../../temp/keyboard/index"
+  }
+}

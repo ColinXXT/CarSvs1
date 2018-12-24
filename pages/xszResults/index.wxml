@@ -1,0 +1,93 @@
+ <view class='mask' catchtouchmove="move" hidden='{{maskFlag}}'></view>
+  <view class='main'>
+  
+   <view class="note">
+      <view class="journey_title"><image src='../../images/more/warn.png'/>扫描结果可能存在误差，请核实/修改</view>
+      </view>
+  <v-panel is-show="{{isShow}}" bindok="keyInputDone" binddelete="inputdelete" bindinputchange="inputChange" key-board-type="{{keyBoardType}}" backgroundColor="white" />
+        <block wx:if="{{path}}">
+        <image class="fullimage" mode="aspectFit" src="{{path}}"></image>
+        </block>
+   <view>      
+   <view class='carStyle'>
+    <view class="Grid">
+      <view class="Grid-cell">
+              <view>车主姓名：</view>
+      </view>
+      <view class="Grid-cell-sub2">
+<view bindtap="carInput">
+      </view>
+      </view>
+    </view>
+    <input class='inputStyle' data-id="owner" placeholder='请输入车主姓名' bindinput='carInput' value='{{ownerValue}}'></input>
+    </view>
+    <view class='carStyle'>
+    <view class="Grid">
+      <view class="Grid-cell">
+              <view>车牌号码：</view>
+      </view>
+      <view class="Grid-cell-sub2">
+<view bindtap="carInput">
+      </view>
+      </view>
+    </view>
+    <!-- <input class='inputStyle' data-id="carNumber" placeholder='请输入车牌号码' bindinput='carInput' value='{{chepaiValue}}'></input> -->
+    <view class='inputStyle' bindtap="keyBoard"><view class='picker'>{{carnumber}}</view>    
+     </view>
+    </view>
+    <view class='carStyle'>
+    <view class="Grid">
+      <view class="Grid-cell">
+              <view><h style='color:red;'>*</h>注册日期：<h style='color:red;'>（请核实驾驶证注册日期)</h></view>
+      </view>
+    </view>
+    <picker class='inputStyle' name="reg_date" mode="date" value="{{registedDate}}" start="1996-1" end="2025-1" bindchange="bindDateChange">  
+            <view class='picker'>{{registedDate}} </view> 
+    </picker> 
+    </view>
+      <view class="carStyle">
+    <view class="Grid">
+      <view class="Grid-cell">
+              <view>机动车车型：</view>
+      </view>
+      <view class="Grid-cell-sub2">
+      </view>
+    </view>
+<input placeholder='请输入车型' data-id="carTypes" class='inputStyle' bindinput='carInput' value='{{carTypesValue}}'></input>
+</view>
+    <view class="carStyle">
+    <view class="Grid">
+      <view class="Grid-cell">
+              <view>发动机号码：</view>
+      </view>
+      <view class="Grid-cell-sub2">
+<view bindtap="showMechie">
+      </view>
+      </view>
+    </view>
+<input placeholder='请输入发动机号' data-id="fdjNumber" class='inputStyle' bindinput='carInput' value='{{fadongjiValue}}'></input>
+</view>
+<view class='carStyle'>
+    <view class="Grid">
+      <view class="Grid-cell">
+              <view>车架号码：</view>
+      </view>
+      <view class="Grid-cell-sub2">
+<view bindtap="showCheJiaNumber">
+      <image mode="aspectFill" class = "left1" src = "../../images/driImage/bmcw-know-more.jpg" mode = "widthFix" />
+      </view>
+      </view>
+    </view>
+    <input class='inputStyle' data-id="zjNumber" placeholder='请输入车架号' bindinput='carInput' value='{{chejiaValue}}'></input>
+    </view>
+  <view class="my-item" style="border:none;padding:10rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;"> 
+    <button style='background: #53c0fc;' type="warn" bindtap="save">查询违章记录</button>
+    
+  </view>
+</view>
+<modal class="modal" id='chejianum' hidden="{{modalFlag}}" no-cancel bindconfirm="modalOk" confirmText="我知道了">
+      <!-- <image alt="" class="age1"> -->
+      <image src="https://lg-8kezvork-1257374224.cos.ap-shanghai.myqcloud.com/cjh.png" alt="" class="age1">
+      </image>       
+</modal>
+</view>
